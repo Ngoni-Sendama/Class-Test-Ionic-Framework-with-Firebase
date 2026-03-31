@@ -17,6 +17,7 @@ export class HomePage {
   increment() {
     this.notificationCount++;
   }
+
   clear() {
     this.notificationCount = 0;
   }
