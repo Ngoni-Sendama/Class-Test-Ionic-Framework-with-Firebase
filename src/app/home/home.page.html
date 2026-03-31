@@ -7,10 +7,10 @@
 <ion-content [fullscreen]="true">
   <div class="top-right">
     <ion-icon name="notifications-outline"></ion-icon>
-    <ion-badge color="danger">5</ion-badge>
+    <ion-badge color="danger">{{ notificationCount }}</ion-badge>
   </div>
   <div id="container">
-    <ion-button>Increment</ion-button>
-    <ion-button>Decrement</ion-button>
+    <ion-button (click)="increment()">Increment</ion-button>
+    <ion-button (click)="clear()">Decrement</ion-button>
   </div>
 </ion-content>
