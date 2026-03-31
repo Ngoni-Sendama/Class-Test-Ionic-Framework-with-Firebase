@@ -49,14 +49,7 @@ Possible CRUD tasks for this level:
 - Read the notification count from Firebase
 - Update the notification count in Firebase
 - Delete a notification record from Firebase
-
-## Current Implementation Notes
-
-At the moment:
-
-- The app supports local notification counting only
-- The "Increment" button increases the badge count
-- The second button resets the count, although its label currently says "Decrement" in the UI
+ 
 
 ## Run the Project
 

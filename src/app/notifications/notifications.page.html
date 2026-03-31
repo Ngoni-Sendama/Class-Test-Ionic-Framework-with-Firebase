@@ -9,8 +9,9 @@
     <ion-icon name="notifications-outline"></ion-icon>
     <ion-badge color="danger">{{ notificationCount }}</ion-badge>
   </div>
+  
   <div id="container">
-    <div>
+    <div class="form-group">
       <input type="text" [(ngModel)]="title" placeholder="Enter title" />
       <input type="text" [(ngModel)]="message" placeholder="Enter message" />
       <ion-button (click)="addNotification()">Add Notification</ion-button>

@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonBadge, IonButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { notificationsCircleOutline, notificationsOutline } from 'ionicons/icons';
+import { notificationsOutline } from 'ionicons/icons';
+
+import { NotificationService } from '../services/notification-service';
 
 
 @Component({
@@ -14,26 +16,39 @@ import { notificationsCircleOutline, notificationsOutline } from 'ionicons/icons
   imports: [IonButton, IonBadge, IonIcon, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class NotificationsPage implements OnInit {
-
-  title = "";
-  message = "";
+  title = '';
+  message = '';
 
   notificationCount = 0;
+  isSubmitting = false;
 
-
-  clear() {
-    this.notificationCount = 0;
-  }
-
-  addNotification() {
-    console.log('Notification added');
-  }
-
-  constructor() {
+  constructor(private notificationService: NotificationService) {
     addIcons({ notificationsOutline });
   }
 
   ngOnInit() {
+  }
+
+  async addNotification() {
+    const title = this.title.trim();
+    const message = this.message.trim();
+
+    if (!title || !message || this.isSubmitting) {
+      return;
+    }
+
+    this.isSubmitting = true;
+
+    try {
+      await this.notificationService.addNotification(title, message);
+      this.title = '';
+      this.message = '';
+      alert('Notification added successfully');
+    } catch (error) {
+      console.error('Failed to save notification', error);
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 
 }
