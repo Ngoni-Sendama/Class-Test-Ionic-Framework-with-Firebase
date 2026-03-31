@@ -60,7 +60,13 @@ At the moment:
 
 ## Run the Project
 
-Install dependencies if needed:
+Clone the project:
+
+```bash
+git clone git@github.com:Ngoni-Sendama/Class-Test-Ionic-Framework-with-Firebase.git
+```
+
+Install dependencies:
 
 ```bash
 npm install
@@ -70,6 +76,11 @@ Start the development server:
 
 ```bash
 npm start
+```
+or
+
+```bash
+ionic serve
 ```
 
 Build the project:
